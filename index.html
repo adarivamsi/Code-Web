@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+<!--     <title><i class="fa-user-secret"></i>Adari Vamsi</title> -->
+   <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <script src="../maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href ="../fonts.googleapis.com/css91fb.css?family=Inconsolata" rel="stylesheet">
+    <link href="../maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo.png" type="image/png" width="20px" heigth="20px"> <title>Adari Vamsi</title>
+        <style>
+            /*basic reset */
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body {background: black;}
+            canvas {display:block;}
+            #btn {
+                   background-color: black ;
+                   color: white;
+                   margin-left:600px;
+                   margin-top: -8em;
+			  		 height: 3em;
+			  		 width: 8em;
+			  		 margin-bottom: -5em;
+			         -webkit-transition: width 2s ease-out;
+			         transition: width 2s ease-out ;
+			         text-decoration: none;
+			         text-align: center;
+			        }
+			        #btn:hover{
+					      width: 200px;
+					      background-color: green;
+					      color: white;
+					      text-align: center;
+             }
+        </style>
+    </head>
+    <body onload='Redirect()'>
+        <canvas id="c"></canvas>
+<audio id="my_audio" src="ar.mp3" loop="loop"></audio>
+        <script>
+        function Redirect() {
+			document.getElementById("my_audio").play();
+        	setTimeout(function(){
+        			window.location = "main.html";},5000);
+        	}
+            </script>
+            <script type="text/javascript">
+        var c = document.getElementById("c");
+        var ctx = c.getContext("2d");
+        //making the canvas full screen
+        c.height = window.innerHeight;
+        c.width = window.innerWidth;
+        //chinese characters - taken from the unicode charset
+        var event = "ADARI VAMSI";
+        //converting the string into an array of single characters
+        event = event.split("");
+        var font_size = 12;
+        var columns = c.width/font_size; //number of columns for the rain
+        //an array of drops - one per column
+        var drops = [];
+        //x below is the x coordinate
+        //1 = y co-ordinate of the drop(same for every drop initially)
+        for(var x = 0; x < columns; x++)
+            drops[x] = 1;
+        //drawing the characters
+        function draw()
+        {
+            //Black BG for the canvas
+            //translucent BG to show trail
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, c.width, c.height);
+            ctx.fillStyle = "#0F0"; //green text
+            ctx.font = font_size + "px arial";
+            //looping over drops
+            for(var i = 0; i < drops.length; i++)
+            {
+                //a random chinese character to print
+                var text = event [Math.floor(Math.random()*event.length)];
+                //x = i*font_size, y = value of drops[i]*font_size
+                ctx.fillText(text, i*font_size, drops[i]*font_size);
+                //sending the drop back to the top randomly after it has crossed the screen
+                //adding a randomness to the reset to make the drops scattered on the Y axis
+                if(drops[i]*font_size > c.height && Math.random() > 0.975)
+                    drops[i] = 0;
+                //incrementing Y coordinate
+                drops[i]++;
+            }
+        }
+        setInterval(draw,35);
+        </script>
+    </body>
+</html>

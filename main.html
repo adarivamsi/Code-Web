@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <meta charset="UTF-8">
+ <link rel="shortcut icon" href="images/logo.png" type="image/png" width="20px" heigth="20px"> <title>Adari Vamsi</title>
+  <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script>
+var countDownDate = new Date("Sept 15, 2017 10:00:00").getTime();
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("timer").innerHTML =days + "d  " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "HOLA IT's Me !";
+    }
+}, 1000);
+</script>
+  <div class="overlay"></div>
+<div class="terminal">
+  <h1>ADARI VAMSI<span class="event"> 8985995829</span></h1>
+  <p class="output" style="margin-left: 10%;">As a startup enthusiast, marketer, <span>I help startups</span>, companies <br/>create and execute their marketing strategies. I also simplify <br/>the <span>complexities</span> of reaching the hispanic population growing <br/>market segment.</p>
+  <br/>
+  <p class="output1"><details style="margin-left: 10%";> <br/>
+<a href="events.html#gfx" style="margin-left:30%">Graphic Designing</a><br/><br/>
+  <a href="events.html#wd">Web Development</a>
+  <a href="events.html#mad" style="margin-left:4%">Mobile App Development</a>
+  <a href="events.html#wdg" style="margin-left:4%">Web Design</a><br/><br/>
+  <a href="events.html#dm">Digital Marketing</a>
+  <a href="events.html#ve" style="margin-left:4%">Video Editing</a><br/><br/>
+  <summary>More about Adari Vamsi<a href="adarivamsi.html">click here</a> </summary></details> </p>
+  <p class="output" style="margin-left:10%;"> Thank You :)</p>
+  <p id="timer"> </p>
+  <h2>Call me @ Anytime</h2>
+  <p> > Adari Vamsi - <a>8985995829</a></p>
+  <br/>
+ <p class="SPAN"><br/>De<a>sign</a> : <a>A</a>dari <a>V</a>amsi</a></p>
+</div>
+</body>
+</html>
